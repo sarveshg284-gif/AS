@@ -35,7 +35,8 @@ st.markdown(
 
 <style>
 
-#noBtn{
+
+noBtn{
     position:absolute;
     left:50%;
     top:80px;
