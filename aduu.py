@@ -1,70 +1,69 @@
 import streamlit as st
-import random
 
-st.set_page_config(
-    page_title="Virtual Gift",
-    page_icon="💖",
-    layout="centered"
+if "show_gift" not in st.session_state:
+st.session_state.show_gift = False
+
+st.markdown(
+""" <h1 style='text-align:center;color:#ff1493;'>
+💖 Do You Love Me?? 💖 </h1>
+""",
+unsafe_allow_html=True
 )
 
-# ---------- CSS ----------
-st.markdown("""
+# YES button
+
+if st.button("YES !! ❤️"):
+st.session_state.show_gift = True
+st.balloons()
+
+# Moving NO button
+
+st.markdown(
+""" <div style="position:relative;height:250px;">
+
+```
+    <button id="noBtn">
+        NO 😜
+    </button>
+
+</div>
+
 <style>
 
-.stApp{
-    background: linear-gradient(135deg,#ffe6ea,#ffd6e8,#fff0f5);
-}
-
-.main{
-    text-align:center;
-}
-
-.title{
-    font-size:40px;
+#noBtn{
+    position:absolute;
+    left:50%;
+    top:80px;
+    transform:translateX(-50%);
+    background:#ff4da6;
+    color:white;
+    border:none;
+    padding:14px 30px;
+    border-radius:30px;
+    font-size:20px;
     font-weight:bold;
-    color:#ff1493;
-    margin-bottom:20px;
-    animation:pulse 1.5s infinite;
+    cursor:pointer;
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+    transition:0.15s;
+    animation:shake 0.8s infinite;
 }
 
-.message{
-    font-size:28px;
-    color:#444;
-    margin-top:20px;
+@keyframes shake{
+    0%{transform:translateX(-50%) rotate(0deg);}
+    25%{transform:translateX(-50%) rotate(3deg);}
+    50%{transform:translateX(-50%) rotate(-3deg);}
+    75%{transform:translateX(-50%) rotate(2deg);}
+    100%{transform:translateX(-50%) rotate(0deg);}
 }
 
-.gift{
-    font-size:90px;
-    animation:bounce 1.2s infinite;
-}
-
-.special{
-    background:white;
-    padding:20px;
-    border-radius:20px;
-    box-shadow:0 0 20px rgba(255,105,180,.4);
-    margin-top:20px;
-}
-
-@keyframes bounce{
-    0%,100%{transform:translateY(0);}
-    50%{transform:translateY(-15px);}
-}
-
-@keyframes pulse{
-    0%{transform:scale(1);}
-    50%{transform:scale(1.08);}
-    100%{transform:scale(1);}
-}
-
-.floating-heart{
+.heart{
     position:fixed;
-    font-size:25px;
-    animation:floatUp 8s linear infinite;
+    font-size:22px;
+    animation:float 6s linear infinite;
     opacity:.7;
 }
 
-@keyframes floatUp{
+@keyframes float{
     from{
         transform:translateY(100vh);
     }
@@ -74,95 +73,72 @@ st.markdown("""
 }
 
 </style>
-""", unsafe_allow_html=True)
 
-# ---------- Floating Hearts ----------
-hearts_html = ""
+<script>
 
-for i in range(20):
-    hearts_html += f"""
-    <div class="floating-heart"
-         style="left:{random.randint(0,95)}%;
-         animation-delay:{random.random()*5}s;">
-         💖
-    </div>
-    """
+const texts = [
+    "NO 😜",
+    "Try Again 😂",
+    "Wrong Button 🤣",
+    "Not Today 😆",
+    "Catch Me 😎",
+    "Impossible 😝"
+];
 
-st.markdown(hearts_html, unsafe_allow_html=True)
+const btn = document.getElementById("noBtn");
 
-# ---------- Session State ----------
-if "show_gift" not in st.session_state:
-    st.session_state.show_gift = False
+btn.addEventListener("mouseover", () => {
 
-if "reveal" not in st.session_state:
-    st.session_state.reveal = False
+    const maxX = window.innerWidth - 180;
+    const maxY = 220;
 
-# ---------- Main UI ----------
-st.markdown(
-    '<div class="title">💖 Do You Love Me?? 💖</div>',
-    unsafe_allow_html=True
+    btn.style.left = Math.random() * maxX + "px";
+    btn.style.top = Math.random() * maxY + "px";
+
+    btn.innerHTML =
+        texts[Math.floor(Math.random()*texts.length)];
+});
+
+</script>
+""",
+unsafe_allow_html=True
+```
+
 )
 
-col1, col2 = st.columns(2)
+# Gift reveal
 
-with col1:
-    if st.button("YES !! ❤️", use_container_width=True):
-        st.session_state.show_gift = True
-        st.balloons()
-
-with col2:
-    funny_texts = [
-        "NO 😅",
-        "Try Again 😜",
-        "Wrong Button 😂",
-        "Not Allowed 😆",
-        "Think Again 🤭"
-    ]
-
-    st.button(
-        random.choice(funny_texts),
-        use_container_width=True
-    )
-
-# ---------- Gift Section ----------
 if st.session_state.show_gift:
 
-    st.markdown(
-        '<div class="message">I know you love me 💕</div>',
-        unsafe_allow_html=True
-    )
+```
+st.markdown(
+    """
+    <div style="
+        background:white;
+        padding:25px;
+        border-radius:20px;
+        text-align:center;
+        box-shadow:0 0 20px rgba(255,105,180,.4);
+    ">
 
-    st.markdown(
-        '<div class="gift">🎁 🎁 🎁</div>',
-        unsafe_allow_html=True
-    )
+    <h2>💕 I knew it! 💕</h2>
 
-    if st.button("🎀 Tap To Reveal Gifts 🎀"):
-
-        st.session_state.reveal = True
-        st.balloons()
-
-# ---------- Reveal ----------
-if st.session_state.reveal:
-
-    st.markdown("""
-    <div class="special">
-
-    <h1>🌸 Here Is Your Gift 🌸</h1>
-
-    <h2>You Are Special ❤️</h2>
-
-    <div style="font-size:80px;">
-    💐 🧸 🍫
+    <div style="font-size:90px;">
+        🎁 🎁 🎁
     </div>
 
-    <br>
+    <h3>🌸 Here is your gift 🌸</h3>
 
-    <h3 style="color:#ff1493;">
-    Thank You For Being Amazing 💖
-    </h3>
+    <div style="font-size:70px;">
+        💐 🧸 🍫
+    </div>
+
+    <p style="font-size:24px;color:#ff1493;">
+        You Are Special ❤️
+    </p>
 
     </div>
-    """, unsafe_allow_html=True)
-
-    st.success("🎉 Surprise Unlocked!")
+    """,
+    unsafe_allow_html=True
+)
+```
