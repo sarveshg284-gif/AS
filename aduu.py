@@ -27,8 +27,7 @@ if st.button("YES !! ❤️"):
 st.markdown(
 """
 <div style="position:relative;height:250px;">
-
-    <button id="noBtn">
+<button id="noBtn">
         NO 😜
     </button>
 
