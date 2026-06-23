@@ -1,7 +1,8 @@
 import streamlit as st
+import streamlit.components.v1 as components
 
 st.set_page_config(
-    page_title="Virtual Gift 💖",
+    page_title="Virtual Love Game 💖",
     page_icon="💖",
     layout="centered"
 )
@@ -9,6 +10,8 @@ st.set_page_config(
 if "show_gift" not in st.session_state:
     st.session_state.show_gift = False
 
+
+# Title
 st.markdown(
     """
     <h1 style='text-align:center;color:#ff1493;'>
@@ -18,84 +21,89 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# YES Button
+# YES BUTTON
 if st.button("YES !! ❤️"):
     st.session_state.show_gift = True
     st.balloons()
 
-# Moving NO Button
-st.markdown(
+
+# HTML GAME (NO button runs away)
+components.html(
 """
-<div style="position:relative;height:250px;">
-<button id="noBtn">
-        NO 😜
-    </button>
-
-</div>
-
+<!DOCTYPE html>
+<html>
+<head>
 <style>
 
+body{
+    margin:0;
+    overflow:hidden;
+    background:transparent;
+}
 
-noBtn{
+#noBtn{
     position:absolute;
-    left:50%;
-    top:80px;
+    top:120px;
+    left:55%;
     transform:translateX(-50%);
     background:#ff4da6;
     color:white;
     border:none;
-    padding:14px 30px;
+    padding:14px 28px;
     border-radius:30px;
-    font-size:20px;
-    font-weight:bold;
+    font-size:18px;
     cursor:pointer;
-    box-shadow:0 5px 15px rgba(0,0,0,.2);
-    transition:0.15s;
-    animation:shake 0.8s infinite;
+    transition:0.1s;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
 }
 
-@keyframes shake{
-    0%{transform:translateX(-50%) rotate(0deg);}
-    25%{transform:translateX(-50%) rotate(3deg);}
-    50%{transform:translateX(-50%) rotate(-3deg);}
-    75%{transform:translateX(-50%) rotate(2deg);}
-    100%{transform:translateX(-50%) rotate(0deg);}
+#yesFake{
+    display:none;
 }
 
 </style>
+</head>
+
+<body>
+
+<button id="noBtn">NO 😜</button>
 
 <script>
+
+const btn = document.getElementById("noBtn");
 
 const texts = [
     "NO 😜",
     "Try Again 😂",
     "Wrong Button 🤣",
-    "Not Today 😆",
     "Catch Me 😎",
-    "Impossible 😝"
+    "Impossible 😝",
+    "Not Today 😆"
 ];
-
-const btn = document.getElementById("noBtn");
 
 btn.addEventListener("mouseover", () => {
 
-    const maxX = window.innerWidth - 180;
-    const maxY = 220;
+    const maxX = window.innerWidth - 150;
+    const maxY = window.innerHeight - 150;
 
     btn.style.left = Math.random() * maxX + "px";
     btn.style.top = Math.random() * maxY + "px";
 
-    btn.innerHTML =
-        texts[Math.floor(Math.random()*texts.length)];
+    btn.innerHTML = texts[Math.floor(Math.random()*texts.length)];
 });
 
 </script>
+
+</body>
+</html>
 """,
-unsafe_allow_html=True
+height=250
 )
 
-# Gift Section
+
+# GIFT SECTION
 if st.session_state.show_gift:
+
     st.markdown(
         """
         <div style="
@@ -119,8 +127,8 @@ if st.session_state.show_gift:
             💐 🧸 🍫
         </div>
 
-        <p style="font-size:24px;color:#ff1493;">
-            You Are Special ❤️
+        <p style="font-size:22px;color:#ff1493;">
+            You are special ❤️
         </p>
 
         </div>
