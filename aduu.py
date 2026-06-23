@@ -1,27 +1,33 @@
 import streamlit as st
 
-if "show_gift" not in st.session_state:
-st.session_state.show_gift = False
-
-st.markdown(
-""" <h1 style='text-align:center;color:#ff1493;'>
-💖 Do You Love Me?? 💖 </h1>
-""",
-unsafe_allow_html=True
+st.set_page_config(
+    page_title="Virtual Gift 💖",
+    page_icon="💖",
+    layout="centered"
 )
 
-# YES button
-
-if st.button("YES !! ❤️"):
-st.session_state.show_gift = True
-st.balloons()
-
-# Moving NO button
+if "show_gift" not in st.session_state:
+    st.session_state.show_gift = False
 
 st.markdown(
-""" <div style="position:relative;height:250px;">
+    """
+    <h1 style='text-align:center;color:#ff1493;'>
+        💖 Do You Love Me?? 💖
+    </h1>
+    """,
+    unsafe_allow_html=True
+)
 
-```
+# YES Button
+if st.button("YES !! ❤️"):
+    st.session_state.show_gift = True
+    st.balloons()
+
+# Moving NO Button
+st.markdown(
+"""
+<div style="position:relative;height:250px;">
+
     <button id="noBtn">
         NO 😜
     </button>
@@ -56,22 +62,6 @@ st.markdown(
     100%{transform:translateX(-50%) rotate(0deg);}
 }
 
-.heart{
-    position:fixed;
-    font-size:22px;
-    animation:float 6s linear infinite;
-    opacity:.7;
-}
-
-@keyframes float{
-    from{
-        transform:translateY(100vh);
-    }
-    to{
-        transform:translateY(-100px);
-    }
-}
-
 </style>
 
 <script>
@@ -102,43 +92,38 @@ btn.addEventListener("mouseover", () => {
 </script>
 """,
 unsafe_allow_html=True
-```
-
 )
 
-# Gift reveal
-
+# Gift Section
 if st.session_state.show_gift:
+    st.markdown(
+        """
+        <div style="
+            background:white;
+            padding:25px;
+            border-radius:20px;
+            text-align:center;
+            box-shadow:0 0 20px rgba(255,105,180,.4);
+            margin-top:20px;
+        ">
 
-```
-st.markdown(
-    """
-    <div style="
-        background:white;
-        padding:25px;
-        border-radius:20px;
-        text-align:center;
-        box-shadow:0 0 20px rgba(255,105,180,.4);
-    ">
+        <h2>💕 I knew it! 💕</h2>
 
-    <h2>💕 I knew it! 💕</h2>
+        <div style="font-size:90px;">
+            🎁 🎁 🎁
+        </div>
 
-    <div style="font-size:90px;">
-        🎁 🎁 🎁
-    </div>
+        <h3>🌸 Here is your gift 🌸</h3>
 
-    <h3>🌸 Here is your gift 🌸</h3>
+        <div style="font-size:70px;">
+            💐 🧸 🍫
+        </div>
 
-    <div style="font-size:70px;">
-        💐 🧸 🍫
-    </div>
+        <p style="font-size:24px;color:#ff1493;">
+            You Are Special ❤️
+        </p>
 
-    <p style="font-size:24px;color:#ff1493;">
-        You Are Special ❤️
-    </p>
-
-    </div>
-    """,
-    unsafe_allow_html=True
-)
-```
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
