@@ -139,9 +139,8 @@ if st.session_state.show_gift:
         <div style="font-size:70px;">
             💐 🧸 🍫
         </div>
-        <p style='text-align:center;font-size:18px;color:#333;line-height:1.8;'>
-         Before I met you, I never knew what it was like to smile 😊 for no reason.<br>
-           Now that you're here, I think my entire life will fall into place.☺️<br>
+        <p style='text-align:center;font-size:16px;color:#333;line-height:1.8;'>
+         Loving❤️ you has taught me what commitment truly means.<br> Every version of my future includes your smile😊.<br>
            </p>
 
         <p style="font-size:22px;color:#ff1493;">
