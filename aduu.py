@@ -22,13 +22,13 @@ st.markdown("""
 
 st.markdown("""
 <p style='text-align:center;font-size:18px;color:#333;line-height:1.8;'>
-   Loving❤️ you has taught me what commitment truly means.<br> Every version of my future includes your smile😊.<br>
+   I don't know how much you love me, but I love you with all my heart."❤️🤌🙂<br>
 </p>
 """, unsafe_allow_html=True)
 st.markdown(
     """
     <h2 style='text-align:center;color:#ff1493;'>
-        💖 Will you be mine ?? 💗🫶 💖
+        💖 Will you be mine 💗🫴 💖
     </h2>
     """,
     unsafe_allow_html=True
@@ -139,7 +139,12 @@ if st.session_state.show_gift:
         <div style="font-size:70px;">
             💐 🧸 🍫
         </div>
-
+        st.markdown("""
+<p style='text-align:center;font-size:18px;color:#333;line-height:1.8;'>
+   I don't know how much you love me, but I love you with all my heart."❤️🤌🙂<br>
+</p>
+""", unsafe_allow_html=True)
+       
         <p style="font-size:22px;color:#ff1493;">
             You are special ❤️
         </p>
