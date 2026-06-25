@@ -12,13 +12,15 @@ if "show_gift" not in st.session_state:
 
 
 # Title
+st.markdown("<h1 style='text-align:center;color:red;'>💭 A Message for You 💭</h1>", unsafe_allow_html=True)
+st.markdown("""
+<p style='text-align:center;font-size:18px;color:#333;line-height:1.8;'>
+    Before I met you, I never knew what it was like to smile 😊 for no reason.<br>
+    Now that you're here, I think my entire life will fall into place.☺️🫶
+</p>
+""", unsafe_allow_html=True)
 st.markdown(
     """
-    <h1 style='text-align:center;color:red;size:0.05px;'> Before I mate you ,
-    I never knew what it was like to smile 😊for no reason. 
-    now that you're here,
-    I think my entire life will fall into place.☺️🫶
-    </h1>
     <h2 style='text-align:center;color:#ff1493;'>
         💖 Do You Love Me?? 💖
     </h2>
