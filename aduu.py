@@ -14,9 +14,14 @@ if "show_gift" not in st.session_state:
 # Title
 st.markdown(
     """
-    <h1 style='text-align:center;color:#ff1493;'>
-        💖 Do You Love Me?? 💖
+    <h1 style='text-align:center;color:red;size:10px;'> Before I mate you ,
+    I never knew what it was like to smile 😊for no reason. 
+    now that you're here,
+    I think my entire life will fall into place.☺️🫶
     </h1>
+    <h2 style='text-align:center;color:#ff1493;'>
+        💖 Do You Love Me?? 💖
+    </h2>
     """,
     unsafe_allow_html=True
 )
@@ -115,13 +120,13 @@ if st.session_state.show_gift:
             margin-top:20px;
         ">
 
-        <h2>💕 I knew it! 💕</h2>
+        <h3>💕 I knew it! 💕</h3>
 
         <div style="font-size:90px;">
             🎁 🎁 🎁
         </div>
 
-        <h3>🌸 Here is your gift 🌸</h3>
+        <h4>🌸 Here is your gift 🌸</h4>
 
         <div style="font-size:70px;">
             💐 🧸 🍫
