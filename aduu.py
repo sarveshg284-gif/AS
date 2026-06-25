@@ -14,7 +14,7 @@ if "show_gift" not in st.session_state:
 # Title
 st.markdown(
     """
-    <h1 style='text-align:center;color:red;size:0.5px;'> Before I mate you ,
+    <h1 style='text-align:center;color:red;size:0.05px;'> Before I mate you ,
     I never knew what it was like to smile 😊for no reason. 
     now that you're here,
     I think my entire life will fall into place.☺️🫶
