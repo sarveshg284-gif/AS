@@ -19,10 +19,17 @@ st.markdown("""
     Now that you're here, I think my entire life will fall into place.☺️🫶
 </p>
 """, unsafe_allow_html=True)
+
+st.markdown("<h2 style='text-align:center;color:red;'>💭 A Message for You 💭</h2>", unsafe_allow_html=True)
+st.markdown("""
+<p style='text-align:center;font-size:18px;color:#333;line-height:1.8;'>
+   Loving❤️ you has taught me what commitment truly means.<br> Every version of my future includes your smile😊.<br>
+</p>
+""", unsafe_allow_html=True)
 st.markdown(
     """
     <h2 style='text-align:center;color:#ff1493;'>
-        💖 Do You Love Me?? 💖
+        💖 Will you be mine ?? 💗🫶 💖
     </h2>
     """,
     unsafe_allow_html=True
