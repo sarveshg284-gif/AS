@@ -139,15 +139,7 @@ if st.session_state.show_gift:
         <div style="font-size:70px;">
             💐 🧸 🍫
         </div>
-        st.markdown("""
-        <p style='text-align:center;font-size:18px;color:#333;line-height:1.8;'>
-                I don't know how much you love me, but I love you with all my heart."❤️🤌🙂<br>
-                </p>
-                """, unsafe_allow_html=True)
-
-
-   
-       
+        
         <p style="font-size:22px;color:#ff1493;">
             You are special ❤️
         </p>
